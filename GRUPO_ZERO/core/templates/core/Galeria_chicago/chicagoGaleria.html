@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>ChicagoGaleria</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="../css/chicago.css">
+  <link rel="stylesheet" href="../css/Estilos.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="../css/Estilos.css">
+
+  <script>
+
+
+
+    //scrip busqueda por id
+    //https://api.artic.edu/api/v1/artworks/artworks/{id}
+    //https://api.artic.edu/api/v1/artworks/27992?fields=id,title,image_id
+
+
+    var url = "https://www.artic.edu/iiif/2/";
+
+    var urlficha = 'https://www.artic.edu/artworks/'
+
+    //https://www.artic.edu/iiif/2/{id}/
+    //https://www.artic.edu/artworks/656/lion-one-of-a-pair-south-pedestal
+    // /full/843,/0/default.jpg
+
+    $(document).ready(function () {
+
+
+      $("#btnBusca").click(function () {
+        $("#ContenedorCartas").empty();
+
+
+
+        var quearyBusqueda = document.getElementById('quearyBusqueda').value
+        //console.log(quearyBusqueda);
+        //https://api.artic.edu/api/v1/artworks/search?q=cats&query[term][is_public_domain]=true
+
+        $.get(`https://api.artic.edu/api/v1/artworks/search?q=${quearyBusqueda}`, function (data) {
+
+          console.log(data.data);
+          $.each(data.data, function (i, item) {
+            var urlApiLink = item.api_link;
+            console.log(urlApiLink);
+
+            $.get(`${urlApiLink}`, function (data) {
+              //console.log(data.data.id);
+              var urlImagen = url.concat(data.data.image_id, '/full/843,/0/default.jpg');
+              //console.log(urlImagen);
+              console.log('https://www.artic.edu/artworks/' + item.id)
+
+
+              var carta = `<div class="card my-3 mx-2" style="width: 18rem;">
+                                    <img src="${urlImagen}" class="card-img-top" alt="${item.title}">
+                                    <div class="card-body">
+                                    <h5 class="card-title">${item.title}</h5>
+                                    <p class="card-text">${item.thumbnail.alt_text}</p>
+                                    <a href=${urlficha}${item.id}> ir a pagina</a>                              
+                                    </div>
+                                    </div>`
+              $("#ContenedorCartas").append(carta);
+            })
+
+          })
+
+        })
+
+      })
+
+    })
+
+  </script>
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark " id="nadvar">
+  </nav>
+  <br>
+
+
+
+  <div class="main">
+    <div class="row">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Busca por queary" id="quearyBusqueda">
+        <div class="input-group-append">
+          <button class="btn btn-secondary" type="button" id="btnBusca">
+            <i class="fa fa-search"></i>
+            Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  <div class="row" id="ContenedorCartas" style="align-items: center; padding-left: 120px;""></div>
+
+ <!--footer de clima-->
+  <footer>
+    <div class=" futer">
+    <br>
+    <div id="futer">
+      cargando temperatura ...
+    </div>
+    <br>
+  </div>
+  </footer>
+
+  <script src="../js/nadvar2.js"></script>
+  <script src="../js/geolocalizacion.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

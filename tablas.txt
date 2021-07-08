@@ -1,0 +1,27 @@
+categorias
+	id_categoria
+	nombre
+	link_autor	
+
+autor
+	id_autor
+	nombre
+	descripcion
+	imagen
+	link_obras
+
+obra
+	id_obra
+	nombre
+	descripcion
+	imagen
+	precio
+	link_autor
+
+usuarios
+	id_usera
+	nickname
+	correo
+	contraseña
+
+10c0.000.000
