@@ -5,4 +5,5 @@ from .views import obras
 urlpatterns = [
     path('',index,name="index"),
     path('',obras,name="obras"),
+    path('',obras,name="autores"),
 ]

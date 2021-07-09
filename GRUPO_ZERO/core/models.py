@@ -12,7 +12,7 @@ class autor(models.Model):
     id_autor=models.IntegerField(primary_key=True, verbose_name='id del autor')
     nombrea=models.CharField(max_length=50, verbose_name='nombre del autor')
     descripcion=models.CharField(max_length=250, verbose_name='descripcion del autor')
-    imagen=models.ImageField(verbose_name='imagen autor')
+    imagen=models.CharField(max_length=2000, verbose_name='imagen autor')
     categorias=models.ForeignKey(categorias,on_delete=models.CASCADE)
     def __str__(self):
         return self.nombrea
