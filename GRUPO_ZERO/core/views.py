@@ -1,16 +1,31 @@
 from django.db import models
 from .models import autor
+from .models import obras as Obras
 from django.shortcuts import render
 
 # Create your views here.
 def index(request):
     return render(request,'core/index.html')
-def obras(request):
-    return render(request,'core/obras.html')
+def obras(request,id):
+    obra=Obras.objects.filter(autor=id)
+    contexto = {
+        'obras':obra
+    }
+    return render(request,'core/obras.html',contexto)
 def autores(request):
-    
     autores=autor.objects.all()
     contexto={
         'autores':autores
     }
     return render(request,'core/autores.html',contexto)
+def login(request):
+    return render(request,'core/Iniciar_sesion.html')
+
+def gchicago(request):
+    return render(request,'core/chicagoGaleria.html')
+def Autor(request,id):
+    Autor=autor.objects.get(id_autor=id)
+    contexto={
+        'autor':Autor
+    }
+    return render(request,'core/autor.html',contexto)  

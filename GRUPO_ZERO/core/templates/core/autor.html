@@ -1,5 +1,5 @@
 {% extends 'core/extras.html' %}{% load static %}
-{%block titulo%}OBRAS{%endblock%}
+{%block titulo%}AUTORES{%endblock%}
 {%block sesion%} 
 <div class="d-flex"><ul class="navbar-nav"><li class="nav-item text-right">
     <a class="nav-link" href="{% url 'login' %}">INICIAR SESION</a>
@@ -7,11 +7,18 @@
   </div>
   {%endblock%}
 {%block body%}
-{% if obras|length == 0 %}
-No hay obras
-{% else %}
-{% for obra in obras %}
-{{obra.nombreo}}
-{% endfor %}
-{% endif %}
+<ul>
+
+<li>
+    <br>
+   {{autor.nombrea}} 
+   <br>
+   {{autor.descripcion}}
+   <br>
+   <img src="{{autor.imagen}}" alt="">
+   <br>
+</a>
+</li>
+
+</ul>
 {%endblock%}
