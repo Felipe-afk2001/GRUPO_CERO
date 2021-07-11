@@ -11,12 +11,61 @@
 
 <li>
     <br>
-   {{autor.nombrea}} 
+   <h2 Style="text-align: center;"> </a>{{autor.nombrea}}</h2>
+   <br> 
+   <h2><a>Biografía</a></h2> 
    <br>
    {{autor.descripcion}}
    <br>
    <img src="{{autor.imagen}}" alt="">
    <br>
+   <body>
+    <div class="container">
+      <!--para organizar cards  -->
+      <div class="row">
+        <div class="card-columns"></div>
+  
+        <!--Eren x completar -->
+        <div class="card" style="width: 18rem;">
+          <img src="{{obras.imagen}}" alt="Eren_Jaeger">
+          <div class="card-body">
+            <h5 class="card-title">Eren Jaeger</h5>
+            <p class="card-text"></p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Mostrar Obra
+            </button>
+  
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eren Jaeger</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <ul>
+                    <li> <a href="{% url 'obras' autor.id_autor %}">
+                        <br>
+                       {{obras.nombreo}} 
+                       <br>
+                       <img src="{{obras.imagen}}" alt="">
+                       <br>
+                    </a>
+                    </li>
+                </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="https://shingeki-no-kyojin.fandom.com/es/wiki/Eren_Jaeger">Wiki Completa</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
 </a>
 </li>
 
