@@ -21,8 +21,8 @@ def autores(request):
 def login(request):
     return render(request,'core/Iniciar_sesion.html')
 
-def gchicago(request):
-    return render(request,'core/chicagoGaleria.html')
+def chicagogaleria(request):
+    return render(request,'core/chicagogaleria.html')
 def Autor(request,id):
     Autor=autor.objects.get(id_autor=id)
     contexto={
