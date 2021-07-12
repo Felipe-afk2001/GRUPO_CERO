@@ -1,22 +1,30 @@
 {% extends 'core/extras.html' %}{% load static %}
 {%block titulo%}AUTORES{%endblock%}
-{%block sesion%} 
-<div class="d-flex"><ul class="navbar-nav"><li class="nav-item text-right">
-    <a class="nav-link" href="{% url 'login' %}">INICIAR SESION</a>
-        </li></ul></div>
-  </div>
-  {%endblock%}
+{%block sesion%}
+<div class="d-flex">
+    <ul class="navbar-nav">
+        <li class="nav-item text-right">
+            <a class="nav-link" href="{% url 'login' %}">INICIAR SESION</a>
+        </li>
+    </ul>
+</div>
+</div>
+{%endblock%}
 {%block body%}
-<ul>
+<!-- <ul> -->
 {%for autor in autores%}
-<li> <a href="{% url 'autor' autor.id_autor %}">
-    <br>
-   {{autor.nombrea}} 
-   <br>
-   <img src="{{autor.imagen}}" alt="">
-   <br>
-</a>
-</li>
+<!-- <li>  -->
+<div class="ms-2">
+    <a href="{% url 'autor' autor.id_autor %}">
+        <br>
+        {{autor.nombrea}}
+        <br>
+        <img style="width:20%" src="{{autor.imagen}}" alt="">
+        <br>
+    </a>
+</div>
+<!-- </li> -->
 {%endfor%}
-</ul>
+<!-- </ul> -->
+
 {%endblock%}

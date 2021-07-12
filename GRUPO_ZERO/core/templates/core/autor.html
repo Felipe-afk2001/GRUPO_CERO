@@ -11,44 +11,72 @@
 </div>
 {%endblock%}
 {%block body%}
-<ul>
 
-  <li>
-    <br>
-    <h2 Style="text-align: center;"> </a>{{autor.nombrea}}</h2>
-    <br>
-    <img src="{{autor.imagen}}" alt="">
-    <br>
-    <h2><a>Biografía</a></h2>
-    <br>
-    {{autor.descripcion}}
-    <br>
 
-    <body>
-      <div class="container">
-        
-        <!--para organizar cards  -->
-        <div class="row">
-          <div class="card-columns"></div>
-          {% for obra in obras %}
-          <!--x completar -->
-          <div class="card" style="width: 18rem;">
-             <img src="{{ obras.imagen }}" alt="n_obra"> 
-            <div class="card-body">
-              <h5 class="card-title">{{ obras.nombreo }}</h5>
-              <p class="card-text"></p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Mostrar Obra
-              </button>
-            
-            </div>
-          </div>
-          {% endfor %}
+<h2 class="mb-2 mt-3" Style="text-align: center;"> </a>{{autor.nombrea}}</h2>
+<div class="row">
+  <div class="col">
+    
+  <img src="{{autor.imagen}}" alt="">
+  </div>
+  <div class="col">
+  <h2 class="m-1"><a>Biografía</a></h2>
+
+
+  {{autor.descripcion}}
+
+
+
+  <div class="container">
+
+    <!--para organizar cards  -->
+    <div class="row">
+      <div class="card-columns"></div>
+      {% for obra in obras %}
+      <!--x completar -->
+      <div class="card" style="width: 18rem;">
+        <img src="{{ obra.imagen }}" alt="img_obra">
+        <div class="card-body">
+          <h5 class="card-title">{{ obra.nombreo }}</h5>
+          <p class="card-text"></p>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{ obra.nombreo }}">
+            Mostrar Obra
+          </button>
+
         </div>
       </div>
-      
-      </a>
-  </li>
- 
-</ul>
+      <div class="modal fade" id="{{ obra.nombreo }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ obra.nombreo }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- <img src="{% static 'core/Imagenes/recursos/admin.png'%}" alt=""> -->
+              <ul>
+                <li>
+                  {{ obra.descripcion }}
+                </li>
+                <li>
+                  {{ obra.precio }}
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-success">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+  </a>
+</div>
 {%endblock%}

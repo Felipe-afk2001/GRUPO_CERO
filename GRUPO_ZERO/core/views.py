@@ -7,9 +7,9 @@ from django.shortcuts import render
 def index(request):
     return render(request,'core/index.html')
 def obras(request,id):
-    obra=Obras.objects.filter(autor=id)
+    obra=Obras.objects.get(id_obra=id)
     contexto = {
-        'obras':obra
+        'obra':obra
     }
     return render(request,'core/obras.html',contexto)
 def autores(request):
@@ -24,8 +24,10 @@ def login(request):
 def chicagogaleria(request):
     return render(request,'core/chicagogaleria.html')
 def Autor(request,id):
+    obra=Obras.objects.filter(autor=id)
     Autor=autor.objects.get(id_autor=id)
     contexto={
-        'autor':Autor
+        'autor':Autor,
+        'obras':obra
     }
     return render(request,'core/autor.html',contexto)  

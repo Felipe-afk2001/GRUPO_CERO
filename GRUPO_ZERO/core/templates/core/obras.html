@@ -7,11 +7,5 @@
   </div>
   {%endblock%}
 {%block body%}
-{% if obras|length == 0 %}
-No hay obras
-{% else %}
-{% for obra in obras %}
 {{obra.nombreo}}
-{% endfor %}
-{% endif %}
 {%endblock%}

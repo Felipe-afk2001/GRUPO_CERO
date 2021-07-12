@@ -72,3 +72,13 @@ div.bloque_fondo_4 {
 .nadvar{
   background-color: black;
 }
+.carousel-item img{
+object-position:top ;
+height: 100%;
+object-fit: cover;
+width: 100%;
+}
+.carousel-item {
+height: 500px;
+
+}
