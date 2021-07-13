@@ -3,6 +3,7 @@ from .models import autor
 from .models import obras as Obras
 from .models import categorias
 from django.shortcuts import render
+from adminapp.models import usuarios
 
 # Create your views here.
 def index(request):
@@ -44,8 +45,9 @@ def Autor(request,id):
 
 def categoria(request,id):
     Autor=autor.objects.filter(categorias=id)
+    nom=''
     contexto= {
-        'autores':Autor
+        'autores':Autor,'nom':nom
     }
     return render(request,'core/categorias.html',contexto)
 

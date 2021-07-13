@@ -22,25 +22,23 @@
 {%block body%}
 <!-- <ul> -->
     <br>
-    <div class="text-center"><h1>AUTORES</h1></div>
-<div class="container-fluid">      
+    <div class="text-center"><h1></h1></div>
+<div class="container-fluid">   
+    <div class="autores">  
 {%for autor in autores%}
 <!-- <li>  -->
-
-        <div class="col-sm-1 col-md-1"></div>
-        <div class="col-sm-2 col-md-2">
-                <br>
-                <a href="{% url 'autor' autor.id_autor %}">
-                {{autor.nombrea}}
-                <br>
-                <img  src="{{autor.imagen}}" alt="" width="100%">
-                <br>
+        <div class="position-relative">
+            <a href="{% url 'autor' autor.id_autor %}">
+                
+                <img  src="{{autor.imagen}}" alt="" class="autores-img"  >
+                <div class="autor-nombre">{{autor.nombrea}}</div>
             </a>
         </div>
-        <div class="col-sm-1 col-md-2"></div>
+        
     
 <!-- </li> -->
 {%endfor%}
+</div> 
 </div>
 <br>
 <!-- </ul> -->

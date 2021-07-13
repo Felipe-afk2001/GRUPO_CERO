@@ -1,0 +1,37 @@
+{% extends 'core/extras.html' %}{% load static %}
+{%block titulo%}SUBIR{%endblock%}
+{%block paginas%}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'subir' %}">SUBIR</a>
+  </li>
+{%endblock%}
+{%block body%}
+<!-- <ul> -->
+    <br>
+    <div class="text-center"><h1>Mostrar obras</h1></div>
+<div class="container-fluid">      
+
+<!-- <li>  -->
+  <div class="container-fluid">
+    <div class="row bloque_fondo_4" style="background-color: rgb(22, 115, 236); border: rgb(5, 0, 0); border-style: solid;"> 
+        <div class="col-sm-12 col-md-12">    
+            <table class="table">
+                <tr><th> ID </th><th> NOMBRE </th><th> AUTOR ID </th> <th>OPCIONES</th></tr>
+                    {%for tabla in obra%}
+                        <tr>
+                            <td> {{tabla.id_obra}} </td><td> {{tabla.nombreo}} </td><td> {{tabla.autor}} </td>
+                            <td><a href="{% url 'modificar' tabla.id_obra%}"><button type="button" class="btn btn-danger">modificar</button></a></td>
+                            <td><a href="{% url 'eliminar' tabla.id_obra%}"><button type="button" class="btn btn-danger">borrar</button></a></td>
+                        </tr>
+                    {%endfor%}
+            </table>
+        </div>
+    </div>
+  </div> 
+<!-- </li> -->
+
+</div>
+<br>
+<!-- </ul> -->
+<script src="{%static 'core/js/previsualizador.js'%}"></script> 
+{%endblock%}

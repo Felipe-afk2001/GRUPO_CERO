@@ -1,0 +1,48 @@
+{% extends 'core/extras.html' %}{% load static %}
+{%block titulo%}MODIFICAR{%endblock%}
+{%block paginas%}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'subir' %}">SUBIR</a>
+  </li>
+{%endblock%}
+{%block body%}
+<!-- <ul> -->
+    <br>
+    <div class="text-center"><h1>Modificar Obra</h1></div>
+<div class="container-fluid">      
+
+<!-- <li>  -->
+  <div class="container-fluid">
+    <div class="row bloque_fondo_4" style="background-color: rgb(22, 115, 236);"> 
+        <div class="col-sm-12 col-md-12">    
+            {%if msg1%}
+            <div class="alert alert-success mt-4">{{msg1}}</div>
+            {%endif%}
+            <form method="POST">
+
+              {%csrf_token%}
+              {%load filters%}
+              {%for campo in formulario%}
+              <div class='form-group mt-4 mb-4'>
+  
+                {{campo.label_tag}}
+                {{campo|addcss:'form-control'}}
+  
+              </div>
+              {%endfor%}
+              <div class='form-group mt-4 mb-4' id="file-preview-zone"></div>
+              <div class="mt-4 mb-4">
+                <input type="submit" value="subir">
+                <input type="reset" value="reset">
+              </div>
+            </form>
+        </div>
+    </div>
+  </div> 
+<!-- </li> -->
+
+</div>
+<br>
+<!-- </ul> -->
+<script src="{%static 'core/js/previsualizador.js'%}"></script> 
+{%endblock%}
