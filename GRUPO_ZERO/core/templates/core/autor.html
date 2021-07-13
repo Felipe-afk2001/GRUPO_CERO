@@ -1,5 +1,14 @@
 {% extends 'core/extras.html' %}{% load static %}
 {%block titulo%}AUTORES{%endblock%}
+{%block paginas%}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'autores' %}">AUTORES</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'chicagogaleria' %}">GALERIA EXTRANJERA</a>
+</li>
+
+{%endblock%}
 {%block sesion%}
 <div class="d-flex">
   <ul class="navbar-nav">
@@ -15,9 +24,9 @@
 
 <h2 class="mb-2 mt-3" Style="text-align: center;"> </a>{{autor.nombrea}}</h2>
 <div class="row">
-  <div class="col">
+  <div class="col-3">
     
-  <img src="{{autor.imagen}}" alt="">
+  <img src="{{autor.imagen}}" alt="" width="100%">
   </div>
   <div class="col">
   <h2 class="m-1"><a>Biografía</a></h2>
@@ -39,13 +48,13 @@
         <div class="card-body">
           <h5 class="card-title">{{ obra.nombreo }}</h5>
           <p class="card-text"></p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{ obra.nombreo }}">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#obra-{{ forloop.counter }}">
             Mostrar Obra
           </button>
 
         </div>
       </div>
-      <div class="modal fade" id="{{ obra.nombreo }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+      <div class="modal fade" id="obra-{{ forloop.counter }}" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -54,13 +63,13 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <!-- <img src="{% static 'core/Imagenes/recursos/admin.png'%}" alt=""> -->
+              <img src="{{obra.imagen }}" alt="" class="img-fluid">
               <ul>
                 <li>
                   {{ obra.descripcion }}
                 </li>
                 <li>
-                  {{ obra.precio }}
+                  ${{ obra.precio }}
                 </li>
               </ul>
             </div>

@@ -82,3 +82,22 @@ width: 100%;
 height: 500px;
 
 }
+.autores-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+.autor-nombre{
+  background-color: black;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.autores{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  gap: 30px;
+}

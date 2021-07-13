@@ -1,5 +1,24 @@
 {% extends 'core/extras.html' %}{% load static %}
 {%block titulo%}INICIO{%endblock%}
+{%block paginas%}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'autores' %}">AUTORES</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'chicagogaleria' %}">GALERIA EXTRANJERA</a>
+</li>
+
+{%endblock%}
+{%block sesion%}
+<div class="d-flex">
+  <ul class="navbar-nav">
+      <li class="nav-item text-right">
+          <a class="nav-link" href="{% url 'login' %}">INICIAR SESION</a>
+      </li>
+  </ul>
+</div>
+</div>
+{%endblock%}
 {%block body%}
   <div class="bloque_fondo">
                 <div class="container-fluid">
@@ -35,29 +54,20 @@
                     </div>  
                   </div> 
                 </div>
-                <br> <br> <br>
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-sm-4 col-md-4"><h3>Pinturas</h3> 
-                      <a href="./categorias/categoria_pintores.html" ><img src="./Imagenes/img_idx/Autorretrato_VanGogh_3.jpg"  alt="..."  width="100%" height="100%" style="border-radius: 5%;"></a>
-                    </div>
-                    <div class="col-sm-4"> <br> <br> <br> </div>
-                    <div class="col-sm-4 col-md-4"><h3>Esculturas</h3>
-                        <a href="./categorias/categoria_escultores.html" ><img src="./obras/Miguel_Angel/piedad_vaticano.jpg"  alt="..."  width="100%" height="100%" style="border-radius: 5%;"></a>
-                    </div>
-                  </div>
-                  <div class="row"> <div class="col"> <br> <br> <br> <br> </div> </div>
-                  <div class="row">
-                    <div class="col-sm-4 col-md-4"><h3>Tejedores</h3> 
-                      <a href="./categorias/categoria_tejedor.html" ><img src="./obras/Andres/poncho.jpg"  alt="..."  width="100%" height="80%" style="border-radius: 5%;"></a>
-                    </div>
-                    <div class="col-sm-4 "> <br> <br> <br> </div>
-                    <div class="col-sm-4 col-md-4"><h3>Orfebres</h3>
-                       <a href="./categorias/categoria_orfebres.html"><img src="./obras/Marcelo/altamira.jpg"  alt="..."  width="100%" height="80%" style="border-radius: 5%;"></a>
-                    </div>  
-                  </div>    
-                </div>
-                <br><br><br>    
   </div> 
+  <div class="container-fluid">  
+    <h2 class="text-center mb-4">categorias</h2>
+    <div class="autores mb-3">
+{%for cate in categoria%}
+          <div class="position-relative ">
+              <a href="{% url 'categorias' cate.id_categoria %}">
+                  <img  src="{{cate.imagen}}" alt="" width="100%"class="autores-img">
+                  <div class="autor-nombre">{{cate.nombrec}}</div>
+              </a>
+          </div>
+      
+{%endfor%}  
+</div>  
+</div>          
 {%endblock%}
   

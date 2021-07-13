@@ -1,5 +1,5 @@
 {% extends 'core/extras.html' %}{% load static %}
-{%block titulo%}AUTORES{%endblock%}
+{%block titulo%}CATEGORIA{%endblock%}
 {%block paginas%}
 <li class="nav-item">
   <a class="nav-link" href="{% url 'autores' %}">AUTORES</a>
@@ -22,23 +22,25 @@
 {%block body%}
 <!-- <ul> -->
     <br>
-    <div class="text-center mb-3"><h1>AUTORES</h1></div>
-<div class="container-fluid">  
-    <div class="autores">  
+    <div class="text-center"><h1>AUTORES</h1></div>
+<div class="container-fluid">      
 {%for autor in autores%}
 <!-- <li>  -->
 
-        <div class=" position-relative" >
-            <a href="{% url 'autor' autor.id_autor %}">
-                
-                <img  src="{{autor.imagen}}" alt="" class="autores-img"  >
-                <div class="autor-nombre">{{autor.nombrea}}</div>
+        <div class="col-sm-1 col-md-1"></div>
+        <div class="col-sm-2 col-md-2">
+                <br>
+                <a href="{% url 'autor' autor.id_autor %}">
+                {{autor.nombrea}}
+                <br>
+                <img  src="{{autor.imagen}}" alt="" width="100%">
+                <br>
             </a>
         </div>
+        <div class="col-sm-1 col-md-2"></div>
     
 <!-- </li> -->
 {%endfor%}
-</div>  
 </div>
 <br>
 <!-- </ul> -->
