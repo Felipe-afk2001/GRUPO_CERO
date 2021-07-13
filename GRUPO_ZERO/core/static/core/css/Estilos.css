@@ -143,6 +143,17 @@ justify-content: center;
   
 }
 
+.biog{
+  margin-right: 10px;
+  text-align: center;
+    
+  }
+
+.spc2{
+  margin-left: 5px;
+}
+
+
 @keyframes loader{
    0% {
        transform:translate(-50%, -50%) rotate(0deg)
