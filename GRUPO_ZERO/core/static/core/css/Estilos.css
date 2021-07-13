@@ -101,3 +101,61 @@ height: 500px;
   grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
   gap: 30px;
 }
+.loader-container{
+  
+  position: relative;
+  /* width: 100px; */
+  /* height: 100px; */
+  /* margin: 10px; */
+}
+
+.loader-container .loader{
+
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 100px;
+ height: 100px;
+ border: solid 6px transparent;
+ border-top-color: rgb(194, 26, 194); 
+ border-bottom-color: rgb(194, 26, 194); 
+ border-left-color:rgb(194, 26, 194);
+ border-radius: 50%;
+ animation: loader 1.4s linear infinite;
+}
+.loader-container .loader2{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  border: solid 8px transparent;
+  border-top-color: rgba(5, 117, 161, 0.966) ; 
+  border-left-color:rgba(5, 117, 161, 0.966) ;
+  border-radius: 50%;
+  animation: loader2 1.2s ease-in-out infinite;
+}
+
+.imgldr{
+display:flex;
+justify-content: center;
+  
+}
+
+@keyframes loader{
+   0% {
+       transform:translate(-50%, -50%) rotate(0deg)
+   }
+   100% {
+      transform:translate(-50%, -50%) rotate(360deg)
+  }
+}
+@keyframes loader2{
+  0% {
+      transform:translate(-50%, -50%) rotate(0deg)
+  }
+  100% {
+     transform:translate(-50%, -50%) rotate(-360deg)
+ }
+}

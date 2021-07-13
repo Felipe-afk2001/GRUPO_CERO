@@ -48,4 +48,7 @@ def categoria(request,id):
         'autores':Autor
     }
     return render(request,'core/categorias.html',contexto)
+
+def load(request):
+    return render(request,'core/load.html')    
    
