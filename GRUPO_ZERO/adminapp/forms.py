@@ -9,12 +9,8 @@ class obras_form (ModelForm):
         model=obras
         fields='__all__'
 
-class borrar_form (ModelForm):
-    class Meta :
-        model=obras
-        fields='__all__'
 
 class modificar_form (ModelForm):
     class Meta :
         model=obras
-        fields='__all__'
+        fields=['nombreo','descripcion','imagen','precio','autor']

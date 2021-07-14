@@ -31,8 +31,21 @@ div.bloque_fondo_4 {
   margin-left: 5%;
   margin-right: 5%;
   color:white;
+  border-radius: 10px;
+  border: rgb(5, 0, 0);
+  border-style: solid;
 }
 
+div.bloque_fondo_5 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  margin-right: 25%;
+  color:white;
+  border-radius: 10px;
+  border: rgb(5, 0, 0); 
+  border-style: solid;
+}
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   height: 100px;
