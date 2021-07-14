@@ -29,7 +29,7 @@
   <!-- <li>  -->
   <div class="container-fluid">
     <div class="row bloque_fondo_4"
-      style="background-color: rgb(22, 115, 236);>
+      style="background-color: rgb(22, 115, 236); border: rgb(5, 0, 0); border-style: solid;">
       <div class="col-sm-12 col-md-12">
         <table class="table">
           <tr>
@@ -45,30 +45,9 @@
             <td> {{tabla.autor}} </td>
             <td><a href="{% url 'modificar' tabla.id_obra%}"><button type="button"
                   class="btn btn-danger">modificar</button></a></td>
-            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Eliminar
-              </button>
-              
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Estas a punto de eliminar , estos cambios no se pueden revertir ¿Estas seguro?
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                      <a class="btn btn-danger" href="{% url 'eliminar' tabla.id_obra %}">Eliminar</a>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+            <td><a class="btn btn-danger" href="{% url 'eliminar' tabla.id_obra %}">Eliminar</a>
+            </td>
+          </tr>
           {%endfor%}
         </table>
       </div>
