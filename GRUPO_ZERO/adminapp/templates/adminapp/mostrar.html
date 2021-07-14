@@ -21,8 +21,31 @@
                         <tr>
                             <td> {{tabla.id_obra}} </td><td> {{tabla.nombreo}} </td><td> {{tabla.autor}} </td>
                             <td><a href="{% url 'modificar' tabla.id_obra%}"><button type="button" class="btn btn-danger">modificar</button></a></td>
-                            <td><a href="{% url 'eliminar' tabla.id_obra%}"><button type="button" class="btn btn-danger">borrar</button></a></td>
-                        </tr>
+                            <td><a href="#"><button type="button" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="Elimi">
+                              Eliminar
+                            </button></a></td></tr>
+                  
+                        
+                        <div class="modal fade" id="Elimi" tabindex="-1" aria-labelledby="exampleModalLabel"
+                          aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                              
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                               
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                                <a href="#"><button type="button" class="btn btn-danger">Eliminar</button></a>
+                              </div>
+                            </div>
+                          </div>
+                        
+
+                       
                     {%endfor%}
             </table>
         </div>
