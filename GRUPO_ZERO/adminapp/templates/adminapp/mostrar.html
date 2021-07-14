@@ -1,60 +1,70 @@
 {% extends 'core/extras.html' %}{% load static %}
 {%block titulo%}SUBIR{%endblock%}
 {%block paginas%}
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'subir' %}">SUBIR</a>
-  </li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'subir' %}">SUBIR</a>
+</li>
 {%endblock%}
 {%block body%}
 <!-- <ul> -->
-    <br>
-    <div class="text-center"><h1>Mostrar obras</h1></div>
-<div class="container-fluid">      
+<br>
+<div class="text-center">
+  <h1>Mostrar obras</h1>
+</div>
+<div class="container-fluid">
 
-<!-- <li>  -->
+  <!-- <li>  -->
   <div class="container-fluid">
-    <div class="row bloque_fondo_4" style="background-color: rgb(22, 115, 236); border: rgb(5, 0, 0); border-style: solid;"> 
-        <div class="col-sm-12 col-md-12">    
-            <table class="table">
-                <tr><th> ID </th><th> NOMBRE </th><th> AUTOR ID </th> <th>OPCIONES</th></tr>
-                    {%for tabla in obra%}
-                        <tr>
-                            <td> {{tabla.id_obra}} </td><td> {{tabla.nombreo}} </td><td> {{tabla.autor}} </td>
-                            <td><a href="{% url 'modificar' tabla.id_obra%}"><button type="button" class="btn btn-danger">modificar</button></a></td>
-                            <td><a href="#"><button type="button" class="btn btn-danger"data-bs-toggle="modal" data-bs-target="Elimi">
-                              Eliminar
-                            </button></a></td></tr>
-                  
-                        
-                        <div class="modal fade" id="Elimi" tabindex="-1" aria-labelledby="exampleModalLabel"
-                          aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                              
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                               
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                                <a href="#"><button type="button" class="btn btn-danger">Eliminar</button></a>
-                              </div>
-                            </div>
-                          </div>
-                        
+    <div class="row bloque_fondo_4"
+      style="background-color: rgb(22, 115, 236); border: rgb(5, 0, 0); border-style: solid;">
+      <div class="col-sm-12 col-md-12">
+        <table class="table">
+          <tr>
+            <th> ID </th>
+            <th> NOMBRE </th>
+            <th> AUTOR ID </th>
+            <th>OPCIONES</th>
+          </tr>
+          {%for tabla in obra%}
+          <tr>
+            <td> {{tabla.id_obra}} </td>
+            <td> {{tabla.nombreo}} </td>
+            <td> {{tabla.autor}} </td>
+            <td><a href="{% url 'modificar' tabla.id_obra%}"><button type="button"
+                  class="btn btn-danger">modificar</button></a></td>
+            <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Eliminar
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Estas a punto de eliminar , estos cambios no se pueden revertir ¿Estas seguro?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal" href="{% url 'eliminar' tabla.id_obra%}">Eliminar</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                       
-                    {%endfor%}
-            </table>
-        </div>
+          {%endfor%}
+        </table>
+      </div>
     </div>
-  </div> 
-<!-- </li> -->
+  </div>
+  <!-- </li> -->
 
 </div>
 <br>
 <!-- </ul> -->
-<script src="{%static 'core/js/previsualizador.js'%}"></script> 
+<script src="{%static 'core/js/previsualizador.js'%}"></script>
 {%endblock%}

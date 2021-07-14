@@ -32,11 +32,8 @@ def mostrar (request):
     }
     return render(request,'adminapp/mostrar.html',contexto)
 
-def eliminar (request, id):
-    obra=obras.objects.get(id_obra=id)
-    formulario= obras_form()
-    contexto={
-        'form':borrar_form(instance=obra)
-    }
-    return render(request,'adminapp/eliminar.html',contexto)
+def eliminar (request,id):
+        obra=obras.objects.get(id_obra=id)
+        obra.delete()
+    return render(request, 'mostrar')
 
